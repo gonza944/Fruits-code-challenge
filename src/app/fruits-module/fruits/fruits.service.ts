@@ -7,7 +7,7 @@ import { IFruit } from './i-fruit';
 })
 export class FruitsService {
 
-  private fruits: BehaviorSubject<IFruit[]>
+  private fruits: BehaviorSubject<IFruit[]> = new BehaviorSubject([]);
 
   constructor() { }
 

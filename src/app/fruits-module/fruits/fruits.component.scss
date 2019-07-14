@@ -1,0 +1,27 @@
+.grid-container {
+    display: grid;
+    grid-template-columns: 10% 80% 10%;
+    padding: 5px;
+  }
+  .grid-item {
+    border: 1px solid white;
+    padding: 20px;
+    font-size: 30px;
+    text-align: center;
+  }
+
+  .color-Orange {
+    background-color: rgb(249, 202, 156);
+  }
+
+  .color-Yellow {
+    background-color: rgb(255, 229, 154);
+  }
+
+  .color-Red {
+    background-color: rgb(224, 102, 101);
+  }
+
+  .color-Green {
+    background-color: rgb(182, 215, 168);
+  }

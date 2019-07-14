@@ -1,3 +1,12 @@
-<p>
-  fruits works!
-</p>
+<div class="grid-container">
+   <ng-container *ngFor="let fruit of orderedFruits$ | async; let i = index">
+    <div class="grid-item color-{{fruit.color}}">
+      {{i + 1}}
+    </div>
+    <div class="grid-item color-{{fruit.color}}">{{fruit.name}}</div>
+   <div class="grid-item color-{{fruit.color}}">
+    <button>up</button>
+    <button>down</button>
+  </div>
+  </ng-container>
+</div>
