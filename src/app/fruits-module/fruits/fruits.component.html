@@ -5,8 +5,12 @@
     </div>
     <div class="grid-item color-{{fruit.color}}">{{fruit.name}}</div>
     <div class="grid-item color-{{fruit.color}}">
-      <button (click)="handleUpButtonClicked(i)" [disabled]="i === 0">up</button>
-      <button (click)="handleDownButtonClicked(i)" [disabled]="i + 1 === orderedFruits$.value.length">down</button>
+      <button mat-icon-button (click)="handleUpButtonClicked(i)" [disabled]="i === 0">
+        <mat-icon class="up-down-button">arrow_drop_up</mat-icon>
+      </button>
+      <button mat-icon-button (click)="handleDownButtonClicked(i)" [disabled]="i + 1 === orderedFruits$.value.length">
+        <mat-icon class="up-down-button">arrow_drop_down</mat-icon>
+      </button>
     </div>
   </ng-container>
 </div>
