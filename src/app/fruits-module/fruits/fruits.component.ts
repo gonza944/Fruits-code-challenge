@@ -39,6 +39,26 @@ export class FruitsComponent implements OnInit, OnDestroy {
     this.fruitService.fetchFruits();
   }
 
+  handleUpButtonClicked(index: number): void {
+    if (index !== 0) {
+      const newOrderedFruitsValue = this.orderedFruits$.value;
+      [newOrderedFruitsValue[index], newOrderedFruitsValue[index - 1]] =
+        [newOrderedFruitsValue[index - 1], newOrderedFruitsValue[index]];
+
+      this.orderedFruits$.next(newOrderedFruitsValue);
+    }
+  }
+
+  handleDownButtonClicked(index: number): void {
+    const newOrderedFruitsValue = this.orderedFruits$.value;
+    if ((index + 1) !== newOrderedFruitsValue.length) {
+      [newOrderedFruitsValue[index], newOrderedFruitsValue[index + 1]] =
+        [newOrderedFruitsValue[index + 1], newOrderedFruitsValue[index]];
+
+      this.orderedFruits$.next(newOrderedFruitsValue);
+    }
+  }
+
   ngOnDestroy(): void {
     // Unsubscribing all the observables... We should not forget to complete the subject!!
     this.onComponentDestruction$.next();
