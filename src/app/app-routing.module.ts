@@ -11,6 +11,9 @@ const routes: Routes = [
 ];
 
 @NgModule({
+  // Agular router allows a single page app to redirect to different parts of the page with URL navigation
+  // Without having to do a postback. Although it's not truly necesary in the excercise if the app
+  // grows it will be handy
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })

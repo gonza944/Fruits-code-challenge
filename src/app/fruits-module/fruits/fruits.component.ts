@@ -8,6 +8,8 @@ import { takeUntil } from 'rxjs/operators';
   selector: 'app-fruits',
   templateUrl: './fruits.component.html',
   styleUrls: ['./fruits.component.scss'],
+  // Change detection strategy allows the developer to boost the app by telling angular to only update
+  // a component when one of their inputs changes.
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FruitsComponent implements OnInit, OnDestroy {
@@ -39,6 +41,10 @@ export class FruitsComponent implements OnInit, OnDestroy {
     this.fruitService.fetchFruits();
   }
 
+  /**
+   * Move one position up the corresponding fruit
+   * @param index index of the fruit in the array
+   */
   handleUpButtonClicked(index: number): void {
     if (index !== 0) {
       const newOrderedFruitsValue = this.orderedFruits$.value;
@@ -49,6 +55,10 @@ export class FruitsComponent implements OnInit, OnDestroy {
     }
   }
 
+  /**
+   * move one position down the corresponding fruit
+   * @param index index of the fruit in the array
+   */
   handleDownButtonClicked(index: number): void {
     const newOrderedFruitsValue = this.orderedFruits$.value;
     if ((index + 1) !== newOrderedFruitsValue.length) {

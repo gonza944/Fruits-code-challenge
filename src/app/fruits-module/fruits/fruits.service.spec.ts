@@ -1,16 +1,21 @@
 import { TestBed } from '@angular/core/testing';
-
 import { FruitsService } from './fruits.service';
+import { async } from 'q';
+
 
 describe('FruitsService', () => {
-  beforeEach(() => TestBed.configureTestingModule({}));
+  let service: FruitsService;
+  
+  beforeEach(() => {
+    TestBed.configureTestingModule({});
+    service = TestBed.get(FruitsService);
+  });
 
   it('should be created', () => {
-    const service: FruitsService = TestBed.get(FruitsService);
     expect(service).toBeTruthy();
   });
 
-  describe('fetching Fruits', () => {
+  describe('fetching Fruits', async(() => {
     it('Should retrieve the fruits list', () => {
       const mockedFruits = [
         { name: 'Orange', color: 'Orange' },
@@ -18,11 +23,12 @@ describe('FruitsService', () => {
         { name: 'Strawberry', color: 'Red' },
         { name: 'Apple', color: 'Green' },
       ];
-      const service: FruitsService = TestBed.get(FruitsService);
+
+      service.fetchFruits();
+
       service.fruits$.subscribe((fruits) => {
         expect(fruits).toEqual(mockedFruits);
       })
-      service.fetchFruits();
     })
-  })
+  }))
 });
